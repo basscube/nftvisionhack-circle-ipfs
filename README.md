@@ -1,4 +1,4 @@
-# NFT Vision Hackthon IPFS <> Basscube
+# NFT Vision Hackthon IPFS&Circle <> Basscube
 This repo only show part of NFT and IPFS solution.
 
 ## Dev
@@ -19,3 +19,5 @@ This repo only show part of NFT and IPFS solution.
     yarn start
     ```
 - Change metamask RPC
+
+Circle Payment related in /payment folder
