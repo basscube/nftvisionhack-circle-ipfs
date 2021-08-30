@@ -1,0 +1,255 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Basscube IPFS NFT Page</title>
+  <link rel="icon" type="image/svg" href="favicon.ico" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" type="text/css" />
+</head>
+
+<body>
+  <main class="container-fluid">
+    <header>
+      <div id="logo-container">
+        <h1 id="logo-text" class="text-center"><img id="mm-logo" src="favicon.ico" />Basscube</h1>
+
+
+      </div>
+    </header>
+    <section>
+      <h3 class="card-title">Status</h3>
+
+      <div class="row">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+          <p class="info-text alert alert-primary">
+            Network: <span id="network"></span>
+          </p>
+        </div>
+
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+          <p class="info-text alert alert-secondary">
+            ChainId: <span id="chainId"></span>
+          </p>
+        </div>
+
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+          <p class="info-text alert alert-success">
+            Accounts: <span id="accounts"></span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="row d-flex justify-content-center">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Wallet Connect</h4>
+
+              <button class="btn btn-primary btn-lg btn-block mb-3" id="connectButton" disabled>
+                Connect
+              </button>
+
+              <p class="info-text alert alert-secondary">
+                Account now: <span id="getAccountsResult"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="
+              col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12
+              d-flex
+              align-items-stretch
+            ">
+          <div class="card full-width">
+            <div class="card-body">
+              <h4 class="card-title">Create Track NFT</h4>
+
+              <div class="form-group">
+                <label for="songName">Song Name</label>
+                <input class="form-control" type="text" name="songName" id="songName">
+                <label for="Amount">Amount</label>
+                <input class="form-control" type="text" name="Amount" id="Amount">
+              </div>
+              <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea class="form-control" name="Description" id="Description" cols="30" rows="5"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="Content">Add content</label>
+                <input class="form-control-file" name="Content" id="Content" type="file"
+                  accept="audio/mp3, audio/wav"></input>
+                <audio id="previewContent" controls="controls" src="" type="audio/mp3">
+              </div>
+              <div class="form-group">
+                <label for="Thumbnail">Thumbnail</label>
+                <input class="form-control-file" name="Thumbnail" id="Thumbnail" type="file"
+                  accept="image/png, image/jpeg"></input>
+                <img src="" id="previewImg" class="img-thumbnail" width="200" height="200" alt="">
+              </div>
+
+              <button class="btn btn-primary btn-lg btn-block mb-3" id="createButton" disabled>
+                Create Track NFT
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="
+              col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12
+              d-flex
+              align-items-stretch
+            ">
+          <div class="card full-width">
+            <div class="card-body">
+              <h4 class="card-title">Manage</h4>
+              <h5>User</h5>
+              <button class="btn btn-primary btn-lg btn-block mb-3" id="registerButton" disabled>
+                Register
+              </button>
+              <h5>Tracks</h5>
+              <div class="form-group">
+                <label for="ownTrack">Selected Track</label>
+                <select class="form-control" name="ownTrack" id="ownTrack">
+                  <option value=""></option>
+                </select>
+                <label for="mintTo">To Address</label>
+                <input class="form-control" type="text" name="mintTo" id="mintTo">
+              </div>
+              <button class="btn btn-primary btn-lg btn-block mb-3" id="mintButton" disabled>
+                Mint
+              </button>
+
+              <button class="btn btn-primary btn-lg btn-block mb-3" id="approveAllButton" disabled>
+                Set Approve For All
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="
+              col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12
+              d-flex
+              align-items-stretch
+            ">
+          <div class="card full-width">
+            <div class="card-body">
+              <h4 class="card-title">My Collection</h4>
+
+              <div class="form-group">
+                <label for="ownCollectionSelect">Selected Track</label>
+                <select class="form-control" name="ownCollectionSelect" id="ownCollectionSelect">
+                  <option value=""></option>
+                </select>
+
+                <label for="colName">Song Name</label>
+                <input class="form-control" type="text" name="colName" id="colName" disabled>
+
+                <label for="colAuthor">Author</label>
+                <input class="form-control" type="text" name="colAuthor" id="colAuthor" disabled>
+
+                <img class="img-thumbnail" name="colImg" id="colImg" width=200 height=200>
+                <audio id="colContent" controls="controls" src="" type="audio/mp3">
+
+              </div>
+
+              <button class="btn btn-primary btn-lg btn-block mb-3" id="transferButton" disabled>
+                Transfer
+              </button>
+
+              <div class="form-group">
+
+                <label for="colCopyIdSelect">Unique Number</label>
+                <select class="form-control" name="colCopyIdSelect" id="colCopyIdSelect">
+                  <option value=""></option>
+                </select>
+                <label for="sendTo">To Address</label>
+                <input class="form-control" type="text" name="sendTo" id="sendTo">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- <section>
+        <div class="row">
+          <div
+            class="
+              col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12
+              d-flex
+              align-items-stretch
+            "
+          >
+            <div class="card full-width">
+              <div class="card-body">
+                <h4 class="card-title">Encrypt / Decrypt</h4>
+
+                <button
+                  class="btn btn-primary btn-lg btn-block mb-3"
+                  id="getEncryptionKeyButton"
+                  disabled
+                >
+                  Get Encryption Key
+                </button>
+
+                <hr />
+
+                <div id="encrypt-message-form">
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Message to encrypt"
+                    id="encryptMessageInput"
+                  />
+
+                  <button
+                    class="btn btn-primary btn-lg btn-block mb-3"
+                    id="encryptButton"
+                    disabled
+                  >
+                    Encrypt
+                  </button>
+                </div>
+
+                <hr />
+
+                <button
+                  class="btn btn-primary btn-lg btn-block mb-3"
+                  id="decryptButton"
+                  disabled
+                >
+                  Decrypt
+                </button>
+
+                <p class="info-text alert alert-secondary">
+                  Encryption key: <span id="encryptionKeyDisplay"></span>
+                </p>
+
+                <p class="info-text text-truncate alert alert-secondary">
+                  Ciphertext: <span id="ciphertextDisplay"></span>
+                </p>
+
+                <p class="info-text alert alert-secondary">
+                  Cleartext: <span id="cleartextDisplay"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+  </main>
+
+  <script src="bundle.js" defer></script>
+</body>
+
+</html>

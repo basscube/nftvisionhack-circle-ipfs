@@ -1,0 +1,57 @@
+{
+  "name": "nftvision-ipfs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test:hardhat": "npx hardhat test",
+    "staging:node": "npx hardhat node --hostname 0.0.0.0 --port 8588",
+    "staging:deploy": "npx hardhat run scripts/deploy.js --network staging",
+    "deploy": "./deploy.sh",
+    "lint": "eslint . --ext js,json && prettier ./src -c",
+    "lint:fix": "eslint . --fix --ext js,json && prettier ./src -c --write",
+    "start": "webpack-dev-server",
+    "build": "webpack --mode production",
+    "test": "yarn lint",
+    "prepare": "yarn test && yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "@metamask/eslint-config": "^2.0.0",
+    "@metamask/onboarding": "^1.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.5",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "v3.4.2-solc-0.7",
+    "@openzeppelin/contracts-upgradeable": "v3.4.2-solc-0.7",
+    "@openzeppelin/hardhat-upgrades": "^1.10.0",
+    "@openzeppelin/test-helpers": "^0.5.13",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.2",
+    "dotenv": "^10.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-json": "^2.0.1",
+    "eth-sig-util": "^2.5.3",
+    "ethereum-waffle": "^3.2.0",
+    "hardhat": "^2.6.1",
+    "hardhat-abi-exporter": "^2.2.1",
+    "hardhat-deploy": "^0.9.0",
+    "hardhat-gas-reporter": "^1.0.4",
+    "hardhat-truffle5": "^1.0.1",
+    "prettier": "^2.0.5",
+    "solidity-coverage": "^0.7.17",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@metamask/legacy-web3": "^2.0.0",
+    "nft.storage": "^3.1.3"
+  }
+}
